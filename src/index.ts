@@ -6,6 +6,9 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import { itmesRouter } from "./items/items.router";
+import { errorHandler } from "./middleware/error.middleware";
+import { notFoundHanlder } from "./middleware/not-found.middleware";
 
 dotenv.config();
 
@@ -28,6 +31,11 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/menu/items", itmesRouter);
+
+app.use(errorHandler);
+app.use(notFoundHanlder);
 
 /**
  * Server activation

@@ -1,0 +1,35 @@
+@hostname = http://localhost:7000
+
+GET {{hostname}}/api/menu/items
+
+###
+
+GET {{hostname}}/api/menu/items/2
+
+###
+
+POST {{hostname}}/api/menu/items
+Content-Type: application/json
+
+{
+    "name": "Salad",
+    "description": "Fresh",
+    "price": 499,
+    "image": "https://cdn.auth0.com/blog/whatabyte/salad-sm.png"
+}
+
+###
+
+PUT {{hostname}}/api/menu/items/3
+Content-Type: application/json
+
+{
+    "name": "Masala Tea",
+    "descriptoin": "Informative",
+    "price": 249,
+    "image": "https://cdn.auth0.com/blog/whatabyte/tea-sm.png"   
+}
+
+###
+
+DELETE {{hostname}}/api/menu/items/1
